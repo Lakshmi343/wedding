@@ -1,0 +1,51 @@
+.home-page-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 20px;
+  background: url('/assets/temple_hero_bg.png') center/cover no-repeat;
+}
+
+.home-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(253, 251, 247, 0.3);
+  z-index: 1;
+}
+
+.envelope-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.button-section {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.open-invitation-btn {
+  background: rgba(253, 251, 247, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--color-gold);
+  color: var(--color-maroon);
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  font-weight: 600;
+}

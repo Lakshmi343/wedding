@@ -1,0 +1,176 @@
+.envelope-static-wrapper {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+}
+
+.envelope-closed-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-ivory);
+  background-image: url('/assets/ivory_texture.png');
+  background-blend-mode: multiply;
+  border: 2px solid var(--color-gold);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.envelope-base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.envelope-bottom-flap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background-color: var(--color-ivory);
+  background-image: url('/assets/ivory_texture.png');
+  perspective: 1500px;
+  cursor: default;
+  /* Add subtle float animation */
+  animation: floatEnvelope 6s ease-in-out infinite;
+}
+
+@keyframes floatEnvelope {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.envelope-base-spacer {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0; /* Invisible, just for sizing */
+  pointer-events: none;
+}
+
+.envelope-back-inside {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--color-ivory-dark); /* Darker cream for the inside */
+  border-radius: 12px;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.envelope-inner-card {
+  position: absolute;
+  top: 5%; left: 5%; right: 5%; bottom: 5%;
+  background: url('/assets/ivory_texture.png') center/cover repeat;
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-gold);
+  border-radius: 8px;
+  z-index: 2; /* Between back and body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-card-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.names-inner {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.tagline-inner {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+}
+
+.envelope-body-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+  pointer-events: none; /* Let clicks pass to seal */
+}
+
+.envelope-body-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.envelope-flap-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 4;
+  clip-path: polygon(0 0, 100% 0, 50% 55%);
+  transform-origin: top;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+
+.flap-front {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+.flap-back {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('/assets/ivory_texture.png') center/cover repeat;
+  background-color: var(--color-ivory-dark);
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+.wax-seal-btn {
+  position: absolute;
+  top: 55%; /* Match the flap tip at 55% */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.wax-seal-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+  .envelope-3d-wrapper {
+    max-width: 90vw;
+  }
+  .names-inner {
+    font-size: 1.8rem;
+  }
+  .tagline-inner {
+    font-size: 0.7rem;
+  }
+  .wax-seal-btn {
+    width: 70px;
+    height: 70px;
+  }
+}

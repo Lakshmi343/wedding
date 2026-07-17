@@ -1,0 +1,289 @@
+/* Keeping Hero Styles Unchanged */
+.invitation-page-wrapper { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
+.hero-section { position: relative; width: 100%; min-height: 100vh; background-image: url('/assets/temple_hero_bg.png'); background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(253, 251, 247, 0.4); z-index: 1; }
+.hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; padding: 40px 30px; max-width: 600px; width: 100%; }
+.hero-small-text { font-family: var(--font-accent); font-size: 0.75rem; font-weight: 600; color: var(--color-text); margin: 10px 0; }
+.tracking-wide { letter-spacing: 2px; }
+.mt-20 { margin-top: 20px; }
+.mt-10 { margin-top: 10px; }
+.hero-names { font-size: 4.5rem; line-height: 0.9; margin: 15px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.hero-ampersand { font-family: var(--font-primary); font-size: 2.5rem; font-style: italic; display: inline-block; margin: 10px 0; }
+.hero-event-title { font-size: 2.5rem; letter-spacing: 5px; margin: 15px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.hero-divider { font-size: 1.5rem; margin: 10px 0; width: 100%; display: flex; align-items: center; justify-content: center; }
+.hero-divider::before, .hero-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--color-gold-light); margin: 0 15px; }
+.hero-date-container { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 20px 0 5px; font-family: var(--font-primary); }
+.date-part { font-size: 1.2rem; font-weight: 600; color: var(--color-text); }
+.date-day { font-size: 2.5rem; font-weight: 400; }
+.date-divider { color: var(--color-gold); font-size: 1.5rem; }
+.hero-day { font-family: var(--font-accent); letter-spacing: 3px; font-size: 0.8rem; color: var(--color-text); margin-bottom: 25px; }
+.hero-venue { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem; color: var(--color-text); }
+.inline-icon { display: inline-block; }
+.scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; cursor: pointer; }
+
+/* 2. New Editorial Layout */
+.editorial-details-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-ivory);
+  background-image: url('/assets/ivory_texture.png');
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.editorial-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editorial-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-text { font-family: var(--font-primary); font-size: 4rem; line-height: 1; margin-bottom: 10px; }
+.logo-ampersand { font-size: 2rem; margin: 0 5px; }
+.section-title { font-size: 3rem; margin-top: -10px; }
+.section-title-small { font-size: 2.2rem; }
+
+/* CSS Grid for Cards */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .editorial-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns is best for this data density */
+  }
+}
+
+@media (max-width: 600px) {
+  .editorial-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+@media (max-width: 600px) {
+  .span-2 { grid-column: span 1; }
+}
+
+/* Elegant Individual Card styling */
+.editorial-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid var(--color-gold-light);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+/* Shine effect on hover */
+.card-shine {
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.editorial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(197, 160, 89, 0.15), 0 0 15px rgba(197, 160, 89, 0.1);
+  border-color: var(--color-gold);
+}
+
+.editorial-card:hover .card-shine {
+  left: 200%;
+}
+
+/* Card Contents */
+.detail-label { font-family: var(--font-accent); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 8px; font-weight: 600; }
+.detail-value { font-family: var(--font-primary); font-size: 1.1rem; line-height: 1.5; white-space: pre-line; }
+.bold-text { font-weight: 600; font-size: 1.2rem; }
+.small-text { font-size: 0.95rem; }
+
+.names-large { font-size: 3.5rem; line-height: 1; text-shadow: 1px 1px 2px rgba(0,0,0,0.05); }
+.parents-text { font-style: italic; color: #666; }
+.parents-names { font-weight: 600; font-size: 1.1rem; margin: 5px 0; }
+.address-text { font-size: 0.9rem; color: #555; }
+
+/* Floral corners for bride card */
+.floral-corner {
+  position: absolute;
+  width: 60px; height: 60px;
+  background-image: url('/assets/jasmine_string.png'); /* reusing asset creatively */
+  background-size: cover;
+  opacity: 0.15;
+  pointer-events: none;
+}
+.floral-corner.top-left { top: 0; left: 0; transform: rotate(-45deg); }
+.floral-corner.bottom-right { bottom: 0; right: 0; transform: rotate(135deg); }
+
+/* Banners */
+.title-banner {
+  background-color: var(--color-maroon);
+  color: var(--color-ivory);
+  padding: 6px 25px;
+  border-radius: 30px;
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  border: 1px solid var(--color-gold);
+  margin-top: -15px; /* Pull up to overlap border naturally */
+}
+
+/* Reception split */
+.reception-split {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.rec-divider {
+  width: 1px;
+  background-color: var(--color-gold-light);
+}
+@media (max-width: 600px) {
+  .reception-split { flex-direction: column; gap: 20px; }
+  .rec-divider { height: 1px; width: 100%; }
+}
+
+/* Map Button */
+.map-btn {
+  background: var(--color-ivory);
+  border: 1px solid var(--color-gold);
+  color: var(--color-text);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: var(--font-primary);
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.map-btn:hover {
+  background: var(--color-gold); color: white;
+}
+
+/* Chips for Compliments */
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.name-chip {
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid var(--color-gold-light);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.name-chip:hover {
+  background: var(--color-maroon);
+  color: white;
+  border-color: var(--color-maroon);
+  transform: translateY(-2px);
+}
+
+.editorial-actions {
+  margin-top: 40px;
+}
+.primary-btn {
+  background: var(--color-maroon);
+  color: white;
+  border: 1px solid var(--color-maroon);
+  padding: 12px 30px;
+  border-radius: 30px;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.primary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(122, 40, 40, 0.3);
+}
+
+/* Empty Design Templates */
+.empty-template {
+  background: linear-gradient(135deg, #ffffff 0%, #f9f6ef 50%, #f0ebd8 100%);
+  box-shadow: inset 0 0 30px rgba(197, 160, 89, 0.05), 0 10px 30px rgba(0,0,0,0.04);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  backdrop-filter: blur(15px);
+}
+
+.empty-template.grid-date, .empty-template.grid-time { min-height: 160px; }
+.empty-template.grid-bride, .empty-template.grid-groom { min-height: 280px; }
+.empty-template.grid-venue { min-height: 180px; }
+.empty-template.grid-reception { min-height: 180px; }
+.empty-template.grid-hosted { min-height: 150px; }
+.empty-template.grid-compliments { min-height: 120px; }
+
+/* Couple Portrait Section */
+.couple-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  padding: 0 10px;
+}
+
+.couple-image-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border: 8px solid var(--color-ivory); /* Soft framing */
+}
+
+/* Subtle gold outline outside the ivory border */
+.couple-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid var(--color-gold);
+  border-radius: 16px; /* slightly smaller to fit inside */
+  pointer-events: none;
+  z-index: 10;
+}
+
+.couple-photo {
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  max-height: 900px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.couple-image-wrapper:hover .couple-photo {
+  transform: scale(1.02);
+}
+
+

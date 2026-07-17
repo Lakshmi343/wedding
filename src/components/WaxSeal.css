@@ -1,0 +1,25 @@
+.wax-seal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.wax-seal-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  /* The generated image might have a white background. Let's use mix-blend-mode if needed, 
+     but assuming it looks okay or we just border-radius it since it's a seal. */
+}
+
+/* The prompt mentions tassel on the seal. The generated image has a tassel. 
+   We might not need a separate CSS tassel if it's in the image. 
+   Let's just scale the whole thing. */
